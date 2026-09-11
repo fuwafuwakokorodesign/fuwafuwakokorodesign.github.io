@@ -54,6 +54,7 @@ h2 {
     color: #ffffff;
     font-family: "Cormorant Garamond", serif;
     z-index: 9999;
+    backdrop-filter: blur(1px); /* すりガラス効果*/
     background: linear-gradient(
         180deg,
         rgba(39, 69, 85, 0.1) 20%,
