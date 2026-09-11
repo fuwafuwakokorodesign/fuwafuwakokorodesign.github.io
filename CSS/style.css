@@ -378,6 +378,31 @@ textarea.c-form_input {
     border-bottom: 1px solid #ffffff; /* 下線を自作する */
     padding-bottom: 4px;
 }
+/* ==========================================
+   Back to Top ボタン ホバーアニメーション
+========================================== */
+
+/* リンクと画像のスムーズな動きの準備 */
+.to-top a {
+    display: inline-block;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.to-top img {
+    transition: filter 0.3s ease;
+}
+
+/* ホバー時の動き */
+.to-top a:hover {
+    transform: translateY(-6px); /* ふわっと6px上に浮き上がる */
+    opacity: 0.9;
+}
+
+.to-top a:hover img {
+    filter: brightness(140%); /* 少し明るく輝く */
+}
 body.thanks {
     position: relative;
 }
