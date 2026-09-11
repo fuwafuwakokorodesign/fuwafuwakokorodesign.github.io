@@ -336,6 +336,28 @@ textarea.c-form_input {
     line-height: 1;
     white-space: nowrap;
 }
+/* ロゴのホバー指定 */
+.logo a,
+.footer_logo a {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.logo a:hover,
+.footer_logo a:hover {
+    opacity: 0.65; /* 少し透ける */
+}
+/* SNSアイコンのホバー設定 */
+.footer_sns a img {
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.footer_sns a:hover img {
+    transform: translateY(-4px); /* 上に4pxふわっと浮く */
+    opacity: 0.75; /* 少し柔らかく透ける */
+}
 .thanks {
     background-image: linear-gradient(
         180deg,
