@@ -54,6 +54,8 @@ h2 {
     color: #ffffff;
     font-family: "Cormorant Garamond", serif;
     z-index: 9999;
+    backdrop-filter: blur(1px); /* すりガラス効果*/
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%);
 }
 
 .logo {
@@ -798,7 +800,7 @@ body.thanks {
         rgba(0, 0, 0, 0) 100%
     );
 
-    backdrop-filter: blur(8px); /* すりガラス効果*/
+    backdrop-filter: blur(2px); /* すりガラス効果*/
 }
 .title-wrap-works {
     display: flex;
