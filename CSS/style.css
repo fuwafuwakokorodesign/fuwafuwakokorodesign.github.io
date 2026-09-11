@@ -789,6 +789,27 @@ body.thanks {
     width: 100%;
     margin: 60px auto 0;
 }
+/* ==========================================
+   「詳しく見る」ボタンのホバーアニメーション
+========================================== */
+
+.more {
+    transition: opacity 0.3s ease;
+}
+
+/* 矢印（画像）をスムーズに動かすための準備 */
+.more img {
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時の動き */
+.more:hover {
+    opacity: 0.75; /* 全体がふんわり透ける */
+}
+
+.more:hover img {
+    transform: translateX(6px); /* 矢印だけ右に6pxスライドする */
+}
 
 .flow-wrap {
     max-width: 1000px;
