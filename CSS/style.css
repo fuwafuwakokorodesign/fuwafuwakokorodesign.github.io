@@ -92,6 +92,51 @@ h2 {
 .hamburger {
     display: none;
 }
+/* ==========================================
+   ナビゲーション ホバー時下線アニメーション（修正版）
+========================================== */
+
+/* 1. PCヘッダーナビ・スマホメニュー・フッターナビ 共通リンク基本設定 */
+.header-nav a,
+.footer_nav a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+/* スマホメニュー用：幅を「文字サイズぴったり」に絞り、中央寄せにする */
+.sp-menu a {
+    position: relative;
+    display: inline-block;
+    width: fit-content; /* 横幅を文字幅に制限 */
+    margin: 0 auto; /* 中央に配置 */
+    text-decoration: none;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+/* 2. 下線の初期状態（透明・横幅0） */
+.header-nav a::after,
+.sp-menu a::after,
+.footer_nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor; /* 文字色に連動 */
+    transition: width 0.3s ease;
+}
+
+/* 3. ホバー時に横幅を100%（＝文字幅いっぱい）へ伸長 */
+.header-nav a:hover::after,
+.sp-menu a:hover::after,
+.footer_nav a:hover::after {
+    width: 100%;
+}
 
 /* --- コンタクトボタン ＆ 共通ボタンデザイン --- */
 .contact-btn,
