@@ -376,6 +376,7 @@ body.thanks {
     overflow-x: hidden;
 
     /* --- PC用背景画像の設定 --- */
+   background-color: #fcfded;
     background-image: url("../images/thanks.png"); /* 背景画像のパス */
     background-position: top center; /* ★画像の上部中央を基準にする（星を見切れさせない） */
     background-size: 100% auto;
@@ -1676,6 +1677,7 @@ section.thanks p {
 
     body.thanks {
         /* --- スマホ用背景画像に切り替え --- */
+       background-color: #fcfded;
         background-image: url("../images/thanks-sp.png");
         background-attachment: scroll; /* スマホでの挙動安定化 */
         background-position: top center; /* 画像の上部中央を基準に配置（星が見切れるのを防止） */
