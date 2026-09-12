@@ -411,28 +411,20 @@ section.thanks p {
     letter-spacing: 0.05em;
 }
 
-/* トップへ戻るボタン（既存の装飾を崩さない調整） */
-.btn-back {
-    display: inline-block;
-    margin-top: 20px;
-    color: #ffffff;
-    text-decoration: none;
-    border-bottom: 1px solid #ffffff;
-    padding-bottom: 4px;
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-}
+/* トップへ戻るボタン */
 .btn-back {
     position: relative;
     display: inline-block;
-    padding: 12px 30px;
+    margin-top: 20px; /* 上の要素との余白 */
+    padding: 12px 30px; /* ボタンの内側余白 */
     color: #ffffff;
     text-decoration: none;
-    border: 1px solid #ffffff; /* 枠線（デザインに合わせて調整） */
-    overflow: hidden; /* 溢れた背景アニメーションを隠す */
+    border: 1px solid #ffffff; /* ボタンの枠線 */
+    overflow: hidden; /* 背景アニメーションのはみ出し防止 */
     z-index: 1;
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease; /* 変形や文字色の変化をスムーズに */
 }
 
 /* 下線となる擬似要素 */
