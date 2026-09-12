@@ -54,7 +54,7 @@ h2 {
     color: #ffffff;
     font-family: "Cormorant Garamond", serif;
     z-index: 9999;
-    backdrop-filter: blur(1px); /* すりガラス効果*/
+    backdrop-filter: blur(1px); /* すりガラス効果 */
     background: linear-gradient(
         180deg,
         rgba(39, 69, 85, 0.1) 20%,
@@ -92,11 +92,15 @@ h2 {
 .hamburger {
     display: none;
 }
-/* ==========================================
-   ナビゲーション ホバー時下線アニメーション（修正版）
-========================================== */
 
-/* 1. PCヘッダーナビ・スマホメニュー・フッターナビ 共通リンク基本設定 */
+/* ロゴ共通アニメーション準備 */
+.logo a,
+.footer_logo a {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+/* ナビゲーション共通リンク基本設定 */
 .header-nav a,
 .footer_nav a {
     position: relative;
@@ -106,18 +110,18 @@ h2 {
     transition: color 0.3s ease;
 }
 
-/* スマホメニュー用：幅を「文字サイズぴったり」に絞り、中央寄せにする */
+/* スマホメニュー用：幅を「文字サイズぴったり」に絞り、中央寄せ */
 .sp-menu a {
     position: relative;
     display: inline-block;
-    width: fit-content; /* 横幅を文字幅に制限 */
-    margin: 0 auto; /* 中央に配置 */
+    width: fit-content;
+    margin: 0 auto;
     text-decoration: none;
     padding-bottom: 4px;
     transition: color 0.3s ease;
 }
 
-/* 2. 下線の初期状態（透明・横幅0） */
+/* ナビ下線の初期状態（透明・横幅0） */
 .header-nav a::after,
 .sp-menu a::after,
 .footer_nav a::after {
@@ -127,15 +131,8 @@ h2 {
     left: 0;
     width: 0;
     height: 1px;
-    background-color: currentColor; /* 文字色に連動 */
+    background-color: currentColor; /* 文字色と連動 */
     transition: width 0.3s ease;
-}
-
-/* 3. ホバー時に横幅を100%（＝文字幅いっぱい）へ伸長 */
-.header-nav a:hover::after,
-.sp-menu a:hover::after,
-.footer_nav a:hover::after {
-    width: 100%;
 }
 
 /* --- コンタクトボタン ＆ 共通ボタンデザイン --- */
@@ -147,7 +144,7 @@ h2 {
     width: 100%;
 }
 
-/* 共通ボタン基本スタイル（aタグ / buttonタグ統一） */
+/* 共通ボタン基本スタイル */
 .contact-btn a,
 .contact-btn2 a,
 .c-form_submit button {
@@ -173,13 +170,6 @@ h2 {
     -webkit-appearance: none;
 }
 
-.contact-btn a:hover,
-.contact-btn2 a:hover,
-.c-form_submit button:hover {
-    background-color: rgba(251, 252, 237, 1);
-    color: #4d6aa5;
-}
-
 /* LINEボタン内の画像調整 */
 .contact-btn a img,
 .contact-btn2 a img {
@@ -187,9 +177,29 @@ h2 {
     width: auto;
     object-fit: contain;
 }
+
+/* テキストリンク（公式LINE等）の自作下線・背景伸び設定 */
 .line-link {
-    text-decoration: underline;
-    color: #fff; /* 今の淡い世界観に合う白文字 */
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 2px 6px;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.line-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* 初期状態の下線の太さ */
+    background-color: #fcfded;
+    border-radius: 4px;
+    z-index: -1;
+    transition: height 0.3s ease;
 }
 
 /* --- お問い合わせフォーム --- */
@@ -245,7 +255,7 @@ textarea.c-form_input {
 }
 
 .c-form_submit button {
-    margin-top: 0; /* 親要素側でmargin制御 */
+    margin-top: 0;
 }
 .c-form_notice {
     font-size: 14px;
@@ -254,14 +264,23 @@ textarea.c-form_input {
     text-align: center;
 }
 
+/* Back to Top ボタン基本 */
 .to-top {
     width: 100%;
     text-align: center;
     margin-bottom: 70px;
 }
 
+.to-top a {
+    display: inline-block;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
 .to-top img {
     filter: brightness(120%);
+    transition: filter 0.3s ease;
 }
 
 /* --- フッター --- */
@@ -323,11 +342,14 @@ textarea.c-form_input {
     gap: 35px;
 }
 
-.footer_sns img {
+.footer_sns a img {
     display: block;
     width: 45px;
     height: 45px;
     object-fit: contain;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .footer_bottom small {
@@ -336,28 +358,8 @@ textarea.c-form_input {
     line-height: 1;
     white-space: nowrap;
 }
-/* ロゴのホバー指定 */
-.logo a,
-.footer_logo a {
-    display: inline-block;
-    transition: opacity 0.3s ease;
-}
 
-.logo a:hover,
-.footer_logo a:hover {
-    opacity: 0.65; /* 少し透ける */
-}
-/* SNSアイコンのホバー設定 */
-.footer_sns a img {
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-}
-
-.footer_sns a:hover img {
-    transform: translateY(-4px); /* 上に4pxふわっと浮く */
-    opacity: 0.75; /* 少し柔らかく透ける */
-}
+/* thanksページ */
 .thanks {
     background-image: linear-gradient(
         180deg,
@@ -370,53 +372,27 @@ textarea.c-form_input {
     min-height: 100vh;
     text-align: center;
     padding-top: 30px;
-
     color: #fff;
 }
 .btn-back {
-    text-decoration: none; /* 本来の下線を消す */
-    border-bottom: 1px solid #ffffff; /* 下線を自作する */
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff;
     padding-bottom: 4px;
 }
-/* ==========================================
-   Back to Top ボタン ホバーアニメーション
-========================================== */
 
-/* リンクと画像のスムーズな動きの準備 */
-.to-top a {
-    display: inline-block;
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-}
-
-.to-top img {
-    transition: filter 0.3s ease;
-}
-
-/* ホバー時の動き */
-.to-top a:hover {
-    transform: translateY(-6px); /* ふわっと6px上に浮き上がる */
-    opacity: 0.9;
-}
-
-.to-top a:hover img {
-    filter: brightness(140%); /* 少し明るく輝く */
-}
 body.thanks {
     position: relative;
 }
 
 .thanks-moon {
     position: absolute;
-    right: 5%; /* ← もっと右へ */
-    bottom: 20%; /* ← もっと下へ */
-    width: 30vw; /* ← サイズはそのまま */
+    right: 5%;
+    bottom: 20%;
+    width: 30vw;
     pointer-events: none;
 }
 .thanks h1 {
-    font-size: 32px; /* ← 好きなサイズに変更 */
-
+    font-size: 32px;
     margin: 50px 0 20px;
 }
 .thanks p {
@@ -806,6 +782,7 @@ body.thanks {
     max-width: 260px;
 }
 
+/* 「詳しく見る」ボタン基本構造 */
 .more {
     display: flex;
     justify-content: center;
@@ -813,27 +790,11 @@ body.thanks {
     gap: 15px;
     width: 100%;
     margin: 60px auto 0;
-}
-/* ==========================================
-   「詳しく見る」ボタンのホバーアニメーション
-========================================== */
-
-.more {
     transition: opacity 0.3s ease;
 }
 
-/* 矢印（画像）をスムーズに動かすための準備 */
 .more img {
     transition: transform 0.3s ease;
-}
-
-/* ホバー時の動き */
-.more:hover {
-    opacity: 0.75; /* 全体がふんわり透ける */
-}
-
-.more:hover img {
-    transform: translateX(6px); /* 矢印だけ右に6pxスライドする */
 }
 
 .flow-wrap {
@@ -881,39 +842,6 @@ body.thanks {
     padding: 0 40px;
     text-align: left;
 }
-/* 下線から背景へ広がるアニメーション */
-.line-link {
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    color: #ffffff;
-    padding: 2px 6px;
-    z-index: 1;
-    transition: color 0.3s ease;
-}
-
-/* 下線（初期状態：高さ2px） */
-.line-link::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px; /* 初期状態の下線の太さ */
-    background-color: #fcfded; /* サイトで使われているクリーム色 */
-    border-radius: 4px;
-    z-index: -1;
-    transition: height 0.3s ease; /* 高さのアニメーション */
-}
-
-/* ホバー時：下線の高さが100%になって背景になる */
-.line-link:hover {
-    color: #4d6aa5; /* 文字色を濃い色にして読みやすく */
-}
-
-.line-link:hover::before {
-    height: 100%; /* 下線が上まで伸びて背景化 */
-}
 
 /* ==========================================
    4. all-work.html 専用スタイル
@@ -930,7 +858,7 @@ body.thanks {
     );
     background-size: cover;
 }
-/* --- ヘッダー --- */
+
 .all-work-page #header {
     display: flex;
     justify-content: space-between;
@@ -949,9 +877,9 @@ body.thanks {
         rgba(39, 69, 85, 0.1) 60%,
         rgba(0, 0, 0, 0) 100%
     );
-
-    backdrop-filter: blur(2px); /* すりガラス効果*/
+    backdrop-filter: blur(2px);
 }
+
 .title-wrap-works {
     display: flex;
     justify-content: center;
@@ -996,10 +924,6 @@ body.thanks {
     align-items: center;
 }
 
-.filter-btn:hover {
-    background: rgba(77, 106, 165, 0.25);
-}
-
 .filter-btn.active {
     background: rgba(77, 106, 165, 1);
     color: rgba(251, 252, 237, 1);
@@ -1025,10 +949,6 @@ body.thanks {
     display: block;
     margin-bottom: 20px;
     transition: 0.3s ease;
-}
-
-.graphic-card:hover img {
-    filter: brightness(0.85);
 }
 
 .graphic-num,
@@ -1062,11 +982,6 @@ body.thanks {
     border: 1px solid rgba(77, 106, 165, 1);
     text-decoration: none;
     transition: 0.3s ease;
-}
-
-.more-btn:hover {
-    background: rgba(77, 106, 165, 1);
-    color: rgba(251, 252, 237, 1);
 }
 
 .hidden-card {
@@ -1116,7 +1031,90 @@ body.thanks {
 }
 
 /* ==========================================
-   5. レスポンシブ統合（タブレット・スマホ対応）
+   5. PC限定ホバーアニメーション設定
+   （スマホでのホバー残りや意図しない表示崩れを防止）
+========================================== */
+@media (hover: hover) {
+    /* ナビゲーション下線伸び */
+    .header-nav a:hover::after,
+    .sp-menu a:hover::after,
+    .footer_nav a:hover::after {
+        width: 100%;
+    }
+
+    /* ロゴふんわり透明度 */
+    .logo a:hover,
+    .footer_logo a:hover {
+        opacity: 0.65;
+    }
+
+    /* メインボタンホバー（背景と文字色反転） */
+    .contact-btn a:hover,
+    .contact-btn2 a:hover,
+    .c-form_submit button:hover {
+        background-color: rgba(251, 252, 237, 1);
+        color: #4d6aa5;
+    }
+
+    /* SNSアイコン（浮遊感） */
+    .footer_sns a:hover img {
+        transform: translateY(-4px);
+        opacity: 0.75;
+    }
+
+    /* 「詳しく見る」ボタン（矢印スライド） */
+    .more:hover {
+        opacity: 0.75;
+    }
+    .more:hover img {
+        transform: translateX(6px);
+    }
+
+    /* LINEテキストリンク（下線立ち上がり背景化） */
+    .line-link:hover {
+        color: #4d6aa5;
+    }
+    .line-link:hover::before {
+        height: 100%;
+    }
+
+    /* Back to Top ボタン（浮揚・輝度アップ） */
+    .to-top a:hover {
+        transform: translateY(-6px);
+        opacity: 0.9;
+    }
+    .to-top a:hover img {
+        filter: brightness(140%);
+    }
+
+    /* ギャラリーカード・ボタン系 */
+    .filter-btn:hover {
+        background: rgba(77, 106, 165, 0.25);
+    }
+    .graphic-card:hover img {
+        filter: brightness(0.85);
+    }
+    .more-btn:hover {
+        background: rgba(77, 106, 165, 1);
+        color: rgba(251, 252, 237, 1);
+    }
+}
+
+/* ==========================================
+   6. スマホ・タッチ操作用フィードバック (:active)
+========================================== */
+.contact-btn a:active,
+.contact-btn2 a:active,
+.c-form_submit button:active,
+.to-top a:active,
+.more:active,
+.filter-btn:active,
+.more-btn:active {
+    opacity: 0.7;
+}
+
+/* ==========================================
+   7. レスポンシブ統合（タブレット・スマホ対応）
 ========================================== */
 
 /* --- 中画面（1100px以下） --- */
@@ -1224,7 +1222,7 @@ body.thanks {
     }
 
     .sp-menu a {
-        display: block;
+        display: inline-block;
         text-align: center;
         color: #fff;
         font-size: 20px;
@@ -1332,8 +1330,8 @@ body.thanks {
     }
     #hero,
     .main-visual {
-        height: 90vh; /* 100vh から 75vh（画面の75%程度の高さ）に縮小 */
-        min-height: 480px; /* 最小高さを 600px から 480px に変更 */
+        height: 90vh;
+        min-height: 480px;
     }
     #message,
     #about,
@@ -1487,7 +1485,6 @@ body.thanks {
         margin-top: 150px;
     }
 
-    /* --- スマホ時のボタン調整（全ボタン同一サイズ・余白に調整） --- */
     .contact-btn,
     .contact-btn2 {
         flex-direction: column;
@@ -1496,7 +1493,6 @@ body.thanks {
         align-items: center;
     }
 
-    /* スマホ時の全ボタン幅・高さ共通化 */
     .contact-btn a,
     .contact-btn2 a,
     .c-form_submit button {
@@ -1521,7 +1517,6 @@ body.thanks {
     }
     .c-form_label {
         width: 100%;
-
         font-size: 14px;
     }
     .c-form_input {
@@ -1618,7 +1613,7 @@ body.thanks {
     .graphic-title {
         font-size: 14px;
     }
-    /* thanksページ */
+
     .btn-back {
         border-bottom: 1px solid #ffffff;
         padding-bottom: 6px;
