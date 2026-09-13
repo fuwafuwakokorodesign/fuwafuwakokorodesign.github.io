@@ -127,7 +127,7 @@ h2 {
 .contact-btn,
 .contact-btn2 {
     display: flex;
-    margin: 100px auto 150px;
+    margin: 100px auto 200px;
     justify-content: center;
     width: 100%;
 }
@@ -707,6 +707,11 @@ section.thanks p {
     width: 100%;
     margin: 0 auto 25px;
 }
+.message-star img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
 .title-wrap img,
 .title-wrap-work img,
@@ -802,6 +807,14 @@ section.thanks p {
 
 .work-img {
     margin-top: 70px;
+    width: 295px; /* ここでカード全体の中央に295pxの幅を確保 */
+    max-width: 100%; /* スマホなど画面が狭い時の枠はみ出し防止 */
+}
+
+.work-img img {
+    width: 100%; /* 295pxの枠いっぱいに広げる */
+    height: auto;
+    display: block;
 }
 
 .work-item {
@@ -823,6 +836,7 @@ section.thanks p {
 
 .work-text {
     max-width: 260px;
+    line-height: 1.7;
 }
 
 /* 「詳しく見る」ボタン基本構造 */
@@ -838,6 +852,8 @@ section.thanks p {
 
 .more img {
     transition: transform 0.3s ease;
+    width: 40px;
+    height: auto;
 }
 
 .flow-wrap {
@@ -930,6 +946,10 @@ section.thanks p {
     gap: 5px;
     width: 100%;
     margin: 250px auto 5px;
+}
+.title-wrap-works img {
+    width: 20px;
+    height: auto;
 }
 
 .work-title-text {
@@ -1189,15 +1209,18 @@ section.thanks p {
 
     .hamburger {
         display: block;
-        height: 25px;
-        width: 25px;
+        /* クリック領域を 25px → 48px に拡大 */
+        width: 48px;
+        height: 48px;
         position: absolute;
-        top: 30px;
-        right: 7%;
+        /* 右上の位置を崩さないよう、広げた分（約11px）位置を微調整 */
+        top: 35px;
+        right: calc(7% - 11px);
         cursor: pointer;
         z-index: 99999;
     }
 
+    /* 3本線の見た目は 25px 幅のまま中央に配置 */
     .hamburger::before,
     .hamburger::after {
         content: "";
@@ -1205,15 +1228,19 @@ section.thanks p {
         height: 2px;
         background: #fff;
         position: absolute;
-        left: 0px;
+        left: 50%;
+        transform: translateX(-50%); /* 左右中央揃え */
         transition: 0.3s;
     }
 
+    /* 上の線の位置 */
     .hamburger::before {
-        top: 35px;
+        top: 15px;
     }
+
+    /* 下の線の位置 */
     .hamburger::after {
-        bottom: 2px;
+        bottom: 15px;
     }
 
     .hamburger.after-works::before,
@@ -1444,7 +1471,7 @@ section.thanks p {
         position: absolute;
         top: -100px;
         right: 10px;
-        width: 15%;
+        width: 25%;
         height: auto;
         pointer-events: none;
     }
