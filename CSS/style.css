@@ -1185,6 +1185,10 @@ body.about-page .about-text p {
     margin-bottom: 50px;
     text-align: center;
 }
+/* PCでは指定した改行を無視（1行で表示） */
+.sp-only {
+    display: none;
+}
 .about-main-text {
     font-size: 16px;
 
@@ -2034,5 +2038,14 @@ body.about-page .about-text p {
         justify-content: center;
         gap: 16px;
         margin-top: 30px;
+    }
+   .sp-only {
+        display: block; /* スマホのみ改行を有効化 */
+    }
+
+    .about-main-catch {
+        font-size: 20px; /* 20pxでバッチリです */
+        line-height: 1.7; /* 行間を少し空けると読みやすくなります */
+        text-align: center; /* 中央揃えでバランスを整える */
     }
 }
