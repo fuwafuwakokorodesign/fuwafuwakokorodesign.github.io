@@ -1186,8 +1186,8 @@ body.about-page .about-text p {
     text-align: center;
 }
 /* PCでは指定した改行を無視（1行で表示） */
-.sp-only {
-    display: none;
+body.about-page .sp-only {
+    display: block;
 }
 .about-main-text {
     font-size: 16px;
@@ -1591,11 +1591,6 @@ body.about-page .about-text p {
         margin-bottom: 1.8em;
         font-size: 14px;
     }
-    body .about-photo {
-        width: 65%;
-        margin: 0;
-        padding: 0;
-    }
 
     /* プロフィールエリアを縦並びに指定 */
     body.about-page .about-content {
@@ -1611,7 +1606,7 @@ body.about-page .about-text p {
     /* 写真のサイズと形状調整 */
     body.about-page .about-photo {
         width: 100%;
-        max-width: 360px; /* 写真の最大幅 */
+
         margin: 0 auto;
     }
 
@@ -1647,7 +1642,7 @@ body.about-page .about-text p {
     body.about-page .about-photo {
         width: 100%;
         max-width: 500px; /* ← お好みに応じて 480px 〜 550px 程度で調整してください */
-        margin: 0 auto;
+        margin: 0;
         padding: 0;
     }
     .about-main-text br {
@@ -1806,7 +1801,7 @@ body.about-page .about-text p {
     }
     .job-title,
     .name-ja {
-        font-size: 20px;
+        font-size: 14px;
     }
 
     .photo-pc {
