@@ -1191,6 +1191,7 @@ body.about-page .about-content {
     margin-bottom: 50px;
     text-align: center;
 }
+
 /* 「今までの経験」セクションを位置の基準にする */
 .about-block {
     position: relative;
@@ -1223,6 +1224,7 @@ body.about-page br.sp-only {
 body.about-page .about-text {
     flex: 1;
     text-align: left;
+    padding-top: 80px;
 }
 
 body.about-page .about-text .job-title {
