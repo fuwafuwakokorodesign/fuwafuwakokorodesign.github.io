@@ -1199,7 +1199,7 @@ body.about-page .about-content {
 /* 装飾画像（セクションの右側中央に配置） */
 .body-right-dec {
     position: absolute;
-    bottom: 400px; /* 先ほどぴったりだった位置 */
+    bottom: 330px; /* 先ほどぴったりだった位置 */
     right: -70px; /* 横位置 */
     width: 24px;
     height: auto;
