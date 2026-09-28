@@ -1825,7 +1825,7 @@ body.about-page .about-text p {
         padding: 0;
     }
     .job-title,
-    .name-ja {
+    .name-ja .profile-sub  {
         font-size: 14px;
     }
 
